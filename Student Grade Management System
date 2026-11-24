@@ -1,0 +1,69 @@
+
+
+
+def calculate_average(marks):
+    return sum(marks) / len(marks)
+
+
+
+def get_grade(average):
+
+    if average >= 90:
+        return "A"
+
+    elif average >= 80:
+        return "B"
+
+    elif average >= 70:
+        return "C"
+
+    elif average >= 60:
+        return "D"
+
+    else:
+        return "F"
+
+
+# Main program
+def main():
+
+    # Empty list to store marks
+    marks = []
+
+    print("Student Grade Management System")
+    print("Enter marks for 5 subjects")
+
+    # Loop to get 5 valid marks
+    while len(marks) < 5:
+
+        try:
+            mark = float(input("Enter mark: "))
+
+            # Validate mark between 0 and 100
+            if mark >= 0 and mark <= 100:
+
+                marks.append(mark)
+
+            else:
+                print("Invalid mark! Enter between 0 and 100.")
+
+        except ValueError:
+            print("Invalid input! Please enter a number.")
+
+  
+    average = calculate_average(marks)
+
+  
+    grade = get_grade(average)
+
+  
+    print("\n----- Student Result -----")
+
+    print("Average Marks:", round(average, 1))
+
+    print("Grade:", grade)
+
+
+
+if _name_ == "_main_":
+    main()
